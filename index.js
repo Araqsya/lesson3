@@ -1,16 +1,14 @@
-var express = require("express");
-var app = express();
-app.get("/google", function(req, res){
-    res.redirect("https://www.google.com/");
- });
- app.get("/search", function(req, res){
-    res.redirect("https://www.google.com/search?q=search%20value");
- });
-app.get("/", function(req, res){
-   res.send("<h1>404<h1>");
-});
+var obj={
+    "first name":"Araqsya",
+    "last name":"Nikoghosyan",
+    "age":15,
+    "tumo_student":true
+}
+var myjson = JSON.stringify(obj);
+var fs = require('fs');
 
-app.listen(3000, function(){
-   console.log("Example is running on port 3000");
-});
-
+function main(){
+   var file  = "obj.json";
+   fs.appendFileSync(file, myjson);
+}
+main();
